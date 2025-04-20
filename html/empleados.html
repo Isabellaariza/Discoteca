@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Empleados</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="../css2/empleados.css"/>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="../css/jquery.fancybox.min.css"/>
+<link rel="stylesheet" type="text/css" href="../css/owl.carousel.min.css"/>
+<link rel="stylesheet" type="text/css" href="../css/owl.theme.default.min.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <div class="logo">Kroma</div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="fas fa-bars"></span> </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item"> <a class="nav-link" href="administrador.html">Inicio</a> </li>
+        <li class="nav-item"> <a class="nav-link" href="productos.html">Productos</a> </li>
+        <li class="nav-item"> <a class="nav-link" href="ventas.html">Ventas</a> </li>
+        <li class="nav-item"> <a class="nav-link active" href="empleados.html">Empleados</a> </li>
+        <li class="nav-item"> <a class="nav-link" href="clientes.html">Clientes</a> </li>
+        <li class="nav-item"> <a class="nav-link" href="proveedores.html">Proveedores</a> </li>
+        <li class="nav-item"> <a class="nav-link" href="insumos.html">Insumos</a> </li>
+        <li class="nav-item"> <a class="nav-link" href="index.html">Salir</a> </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="banner text-center" data-scroll-index='0'>
+  <div class="banner-overlay">
+    <div class="container">
+      <h2>Empleados</h2>
+      <div class="boton" style="text-align: right; margin-bottom: 20px;">
+        <button type="button" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#EmpleadoModal">
+          Registrar nuevo Empleado
+        </button>
+      </div>
+      <table class="table table-striped" id="empleadosTable">
+        <thead>
+          <tr>
+            <th>Nombre del Empleado</th>
+            <th>Cargo</th>
+            <th>Salario</th>
+            <th>Correo Electrónico</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Ana Pérez</td>
+            <td>Gerente de Ventas</td>
+            <td>$3,500</td>
+            <td>ana@gmail.com</td>
+          </tr>
+          <tr>
+            <td>Carlos López</td>
+            <td>Desarrollador Web</td>
+            <td>$2,800</td>
+            <td>carlos@gmail.com</td>
+          </tr>
+          <tr>
+            <td>Sofía Gómez</td>
+            <td>Asistente de RRHH</td>
+            <td>$2,200</td>
+            <td>sofia@gmail.com</td>
+          </tr>
+          <tr>
+            <td>Mateo Vargas</td>
+            <td>Analista de Datos</td>
+            <td>$3,000</td>
+            <td>mateo@gmail.com</td>
+          </tr>
+          <tr>
+            <td>Isabella Rodríguez</td>
+            <td>Diseñadora Gráfica</td>
+            <td>$2,500</td>
+            <td>isabella@gmail.com</td>
+          </tr>
+        </tbody>
+      </table>
+    
+      <div class="modal fade" id="EmpleadoModal" tabindex="-1" aria-labelledby="EmpleadoModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="EmpleadoModalLabel">Registro de nuevo Empleado</h5>
+            </div>
+            <div class="modal-body">
+              <form id="empleadoForm">
+                <div class="mb-3">
+                  <label for="nombreEmpleado" class="form-label">Nombre del Empleado:</label>
+                  <input type="text" class="form-control" id="nombreEmpleado" placeholder="Nombre " required>
+                </div>
+                <div class="mb-3">
+                  <label for="cargoEmpleado" class="form-label">Cargo:</label>
+                  <input type="text" class="form-control" id="cargoEmpleado" placeholder="Cargo " required>
+                </div>
+                <div class="mb-3">
+                  <label for="salarioEmpleado" class="form-label">Salario:</label>
+                  <input type="number" class="form-control" id="salarioEmpleado" placeholder="Salario " required>
+                </div>
+                <div class="mb-3">
+                  <label for="correoEmpleado" class="form-label">Correo Electrónico:</label>
+                  <input type="email" class="form-control" id="correoEmpleado" placeholder="Correo " required>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              <button type="button" class="btn btn-primary" id="registerEmpleadoButton">Registrar Empleado</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <script>
+        document.getElementById('registerEmpleadoButton').addEventListener('click', function(event) {
+          event.preventDefault();
+    
+          const nombre = document.getElementById('nombreEmpleado').value;
+          const cargo = document.getElementById('cargoEmpleado').value;
+          const salario = document.getElementById('salarioEmpleado').value;
+          const correo = document.getElementById('correoEmpleado').value;
+    
+          if (nombre && cargo && salario && correo) {
+            const table = document.getElementById('empleadosTable').getElementsByTagName('tbody')[0];
+            const newRow = table.insertRow();
+    
+            newRow.insertCell(0).textContent = nombre;
+            newRow.insertCell(1).textContent = cargo;
+            newRow.insertCell(2).textContent = salario;
+            newRow.insertCell(3).textContent = correo;
+    
+            alert('Empleado registrado correctamente');
+    
+            var modal = bootstrap.Modal.getInstance(document.getElementById('EmpleadoModal'));
+            modal.hide();
+    
+            document.getElementById('empleadoForm').reset();
+          } else {
+            alert('Por favor, completa todos los campos.');
+          }
+        });
+      </script>
+    </div>
+  </div>
+</div>
+
+<footer class="footer-copy">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <p>2025 &copy; Kroma</p>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
+
+<script src="../js/jquery-3.7.1.min.js"></script>
+<script src="../js/popper.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+<script>
+    $(window).on("scroll", function () {
+
+        var bodyScroll = $(window).scrollTop(),
+            navbar = $(".navbar");
+
+        if (bodyScroll > 130) {
+
+            navbar.addClass("nav-scroll");
+            $('.navbar-logo img').attr('src', 'images/logo-black.png');
+
+
+        } else {
+
+            navbar.removeClass("nav-scroll");
+            $('.navbar-logo img').attr('src', 'images/logo-white.png');
+
+        }
+
+    });
+
+    $(window).on("load", function () {
+
+
+
+        var bodyScroll = $(window).scrollTop(),
+            navbar = $(".navbar");
+
+
+        /* smooth scroll
+         -------------------------------------------------------*/
+        $.scrollIt({
+
+            easing: 'swing',      // the easing function for animation
+            scrollTime: 900,       // how long (in ms) the animation takes
+            activeClass: 'active', // class given to the active nav element
+            onPageChange: null,    // function(pageIndex) that is called when page is changed
+            topOffset: -63
+        });
+
+
+        /* filter items on button click
+        -------------------------------------------------------*/
+        $('.filtering').on('click', 'button', function () {
+
+            var filterValue = $(this).attr('data-filter');
+
+            $gallery.isotope({ filter: filterValue });
+
+        });
+
+        $('.filtering').on('click', 'button', function () {
+
+            $(this).addClass('active').siblings().removeClass('active');
+
+        });
+
+    })
+
+</script>

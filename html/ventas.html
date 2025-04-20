@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Ventas</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+        integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../css2/ventas.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+        integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../css/jquery.fancybox.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/owl.carousel.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <div class="logo">Kroma</div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation"> <span class="fas fa-bars"></span> </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"> <a class="nav-link" href="administrador.html">Inicio</a> </li>
+                    <li class="nav-item"> <a class="nav-link" href="productos.html">Productos</a> </li>
+                    <li class="nav-item"> <a class="nav-link active" href="ventas.html">Ventas</a> </li>
+                    <li class="nav-item"> <a class="nav-link" href="empleados.html">Empleados</a> </li>
+                    <li class="nav-item"> <a class="nav-link" href="clientes.html">Clientes</a> </li>
+                    <li class="nav-item"> <a class="nav-link" href="proveedores.html">Proveedores</a> </li>
+                    <li class="nav-item"> <a class="nav-link" href="insumos.html">Insumos</a> </li>
+                    <li class="nav-item"> <a class="nav-link" href="index.html">Salir</a> </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="banner text-center" data-scroll-index='0'>
+        <div class="banner-overlay">
+            <div class="container">
+                <h2>Ventas</h2>
+                <div class="boton" style="text-align: right; margin-bottom: 20px;">
+                    <button type="button" class="btn btn-primary " data-bs-toggle="modal"
+                        data-bs-target="#VentaModal">
+                        Registrar nueva Venta
+                    </button>
+                </div>
+                <table class="table table-striped" id="ventasTable">
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Cliente</th>
+                            <th>Producto</th>
+                            <th>Cantidad</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2025-04-15</td>
+                            <td>Juan Pérez</td>
+                            <td>Cóctel Margarita</td>
+                            <td>2</td>
+                            <td>$20.000</td>
+                        </tr>
+                        <tr>
+                            <td>2025-04-15</td>
+                            <td>María González</td>
+                            <td>Cerveza Club Colombia</td>
+                            <td>6</td>
+                            <td>$30.000</td>
+                        </tr>
+                        <tr>
+                            <td>2025-04-16</td>
+                            <td>Carlos Rodríguez</td>
+                            <td>Tequila Sunrise</td>
+                            <td>1</td>
+                            <td>$15.000</td>
+                        </tr>
+                        <tr>
+                            <td>2025-04-16</td>
+                            <td>Laura Martínez</td>
+                            <td>Whisky Old Parr</td>
+                            <td>1</td>
+                            <td>$120.000</td>
+                        </tr>
+                        <tr>
+                            <td>2025-04-17</td>
+                            <td>Andrés Sánchez</td>
+                            <td>Ron Medellín Añejo</td>
+                            <td>1</td>
+                            <td>$40.000</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="modal fade" id="VentaModal" tabindex="-1" aria-labelledby="VentaModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="VentaModalLabel">Registro de nueva Venta</h5>
+                            </div>
+                            <div class="modal-body">
+                                <form id="ventaForm">
+                                    <div class="mb-3">
+                                        <label for="fechaVenta" class="form-label">Fecha:</label>
+                                        <input type="date" class="form-control" id="fechaVenta" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="clienteVenta" class="form-label">Cliente:</label>
+                                        <input type="text" class="form-control" id="clienteVenta" placeholder="Nombre del Cliente"
+                                            required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="productoVenta" class="form-label">Producto:</label>
+                                        <input type="text" class="form-control" id="productoVenta" placeholder="Nombre del Producto"
+                                            required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="cantidadVenta" class="form-label">Cantidad:</label>
+                                        <input type="number" class="form-control" id="cantidadVenta" placeholder="Cantidad"
+                                            required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="totalVenta" class="form-label">Total:</label>
+                                        <input type="number" class="form-control" id="totalVenta" placeholder="Total de la Venta"
+                                            required>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                <button type="button" class="btn btn-primary" id="registrarVentaButton">Registrar
+                                    Venta</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <script>
+                    document.getElementById('registrarVentaButton').addEventListener('click', function (event) {
+                        event.preventDefault();
+
+                        const fecha = document.getElementById('fechaVenta').value;
+                        const cliente = document.getElementById('clienteVenta').value;
+                        const producto = document.getElementById('productoVenta').value;
+                        const cantidad = document.getElementById('cantidadVenta').value;
+                        const total = document.getElementById('totalVenta').value;
+
+                        if (fecha && cliente && producto && cantidad && total) {
+                            const table = document.getElementById('ventasTable').getElementsByTagName('tbody')[0];
+                            const newRow = table.insertRow();
+
+                            newRow.insertCell(0).textContent = fecha;
+                            newRow.insertCell(1).textContent = cliente;
+                            newRow.insertCell(2).textContent = producto;
+                            newRow.insertCell(3).textContent = cantidad;
+                            newRow.insertCell(4).textContent = total;
+
+                            alert('Venta registrada correctamente');
+
+                            var modal = bootstrap.Modal.getInstance(document.getElementById('VentaModal'));
+                            modal.hide();
+
+                            document.getElementById('ventaForm').reset();
+                        } else {
+                            alert('Por favor, completa todos los campos.');
+                        }
+                    });
+                </script>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer-copy">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <p>2025 &copy; Kroma</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
+
+<script src="../js/jquery-3.7.1.min.js"></script>
+<script src="../js/popper.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+    integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+
+    <script>
+        $(window).on("scroll", function () {
+    
+            var bodyScroll = $(window).scrollTop(),
+                navbar = $(".navbar");
+    
+            if (bodyScroll > 130) {
+    
+                navbar.addClass("nav-scroll");
+                $('.navbar-logo img').attr('src', 'images/logo-black.png');
+    
+    
+            } else {
+    
+                navbar.removeClass("nav-scroll");
+                $('.navbar-logo img').attr('src', 'images/logo-white.png');
+    
+            }
+    
+        });
+    
+        $(window).on("load", function () {
+    
+    
+    
+            var bodyScroll = $(window).scrollTop(),
+                navbar = $(".navbar");
+    
+    
+            /* smooth scroll
+             -------------------------------------------------------*/
+            $.scrollIt({
+    
+                easing: 'swing',      // the easing function for animation
+                scrollTime: 900,       // how long (in ms) the animation takes
+                activeClass: 'active', // class given to the active nav element
+                onPageChange: null,    // function(pageIndex) that is called when page is changed
+                topOffset: -63
+            });
+    
+    
+            /* filter items on button click
+            -------------------------------------------------------*/
+            $('.filtering').on('click', 'button', function () {
+    
+                var filterValue = $(this).attr('data-filter');
+    
+                $gallery.isotope({ filter: filterValue });
+    
+            });
+    
+            $('.filtering').on('click', 'button', function () {
+    
+                $(this).addClass('active').siblings().removeClass('active');
+    
+            });
+    
+        })
+    
+    </script>

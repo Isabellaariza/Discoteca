@@ -1,0 +1,281 @@
+* {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	text-decoration: none !important;
+	list-style: none !important;
+	outline: none !important;
+	margin: 0;
+	padding: 0;
+}
+html {
+	height: 100%;
+}
+body {
+	color: #888888;
+	font-size: 15px;
+	font-family: "Poppins", sans-serif;
+	height: 100%;
+	overflow-x: hidden;
+}
+a {
+	text-decoration: none !important;
+}
+a:hover {
+	color: #ffaf53 !important;
+}
+img {
+	max-width: 100%;
+	height: auto;
+	vertical-align: middle;
+}
+span, a {
+	display: inline-block;
+	color: inherit;
+}
+h1, h3, h4, h5, h6 {
+	color: #151515;
+	font-weight: 600;
+	font-family: "Open Sans", sans-serif;
+	margin: 0;
+}
+p {
+	line-height: 1.6;
+	font-weight: 400;
+	margin: 0;
+}
+h1 {
+	font-size: 40px;
+}
+h2 {
+	font-size: 35px;
+}
+h3 {
+	font-size: 30px;
+}
+h4 {
+	font-size: 26px;
+}
+h5 {
+	font-size: 15px;
+}
+h6 {
+	font-size: 13px;
+}
+h4 {
+	font-weight: 400;
+}
+h6 {
+	font-weight: bold;
+}
+.navbar {
+	position: fixed;
+	right: 0;
+	left: 0;
+	width: 100%;
+	padding-left: 0;
+	padding-right: 0;
+	min-height: 50px;
+	line-height: 50px;
+	background: transparent;
+	z-index: 1030;
+}
+.single-image{
+	width: 50%;
+	height: 50%;
+}
+.logo{
+	color: white;
+	font-size: 35px;
+}
+.navbar .active {
+	color: #ffaf53 !important;
+}
+.navbar .nav-item {
+	margin: 0 5px;
+	padding: 0;
+}
+.navbar .nav-item a {
+	color: #ffffff;
+	font-weight: 300;
+}
+.navbar .nav-link {
+	position: relative;
+	padding: 0;
+}
+.navbar .navbar-toggler {
+	cursor: pointer;
+}
+.navbar .navbar-toggler span {
+	color: #fff;
+}
+.navbar-style2 .active:after, .navbar-style2 .nav-link:after {
+	display: none;
+}
+.nav-scroll {
+	background: #fff;
+	-webkit-box-shadow: 0 1px 8px 3px rgba(0, 0, 0, 0.0509803922);
+	box-shadow: 0 1px 8px 3px rgba(0, 0, 0, 0.0509803922);
+	-webkit-transition: all .4s ease;
+	transition: all .4s ease;
+}
+.nav-scroll .navbar-nav > li > a {
+	color: #333;
+}
+.nav-scroll .logo{
+    color: #333;
+}
+.nav-scroll .navbar-brand img {
+	-webkit-transform: scale(1.03) !important;
+	transform: scale(1.03) !important;
+}
+.nav-scroll .navbar-toggler {
+	cursor: pointer;
+}
+.nav-scroll .navbar-toggler span {
+	color: #333;
+}
+.nav-scroll .nav-link:hover:after {
+	background-color: #2388ed;
+}
+.nav-scroll .active {
+	position: relative;
+}
+.banner {
+	background:url(../images/fondo1.jpg) no-repeat 0% 0% / 100% 100%;
+	color:#ffffff;
+	text-align: center;
+	width: 100%;
+    min-height: 94vh;
+}
+.banner-overlay {
+	background: linear-gradient(to bottom, rgba(171, 47, 82, 0.82) 40%, #ffaf53 100%);
+	padding: 60px 0px 70px;
+    min-height: 94vh;
+}
+.banner h1 {
+	color:#ffffff;
+}
+.banner p {
+	margin:15px auto 15px;
+	max-width: 670px
+}
+.table {
+    margin: 0 auto;
+    max-width: 95%;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    background-color: white !important;
+    margin-top: 20px;
+}
+  
+th{
+    color: #dc3545 !important;
+    font-weight: bold;
+}
+
+td{
+    color: #333;
+}
+
+h2{
+    margin-top: 50px;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.btn-primary {
+    background-color: #ffaf53;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btn-primary:hover {
+    background: white;
+    color: #ffaf53;
+}
+
+.modal-content {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow:
+    0 4px 16px  rgba(171, 47, 82, 0.82), 
+    0 0 20px #ffaf53; 
+}
+
+.modal-header {
+  background-color: #dc3545;
+  color: white;
+  border-bottom: none;
+  padding: 1rem 1.5rem;
+}
+
+.modal-title {
+    font-family: "Open Sans", sans-serif;
+    font-size: 20px;
+    color: white;
+}
+
+.modal-footer {
+  padding: 1rem 1.5rem;
+  border-top: none;
+  font-size: 14px;
+}
+
+#empleadoForm {
+    display: grid;
+    gap: 5px;
+}
+
+.mb-3 {
+    display: contents; 
+}
+
+.form-label {
+    color: #333;
+    font-size: 16px;
+    text-align: left; 
+}
+
+.form-control {
+    text-align: left; 
+}
+
+input.form-control:focus {
+    border-color: #ab2f52;
+    box-shadow: 0 0 0 0.2rem #c2607b;
+}
+
+.footer-copy {
+	background: #242424;
+	color: #ffffff;
+	font-size: 13px;
+	text-align: center;
+	padding:7px 0px;
+}
+@media all and (max-width:991px) {
+.navbar .navbar-collapse {
+    overflow: auto;
+    background: rgba(0, 0, 0, 0.72);
+    color: #fff !important;
+    text-align: center;
+    padding: 10px 0;
+}
+.nav-scroll .navbar-collapse {
+    background: #fff !important;
+}
+}
+@media all and (max-width:768px) {
+.nav-scroll .navbar-brand img, .navbar-brand img{
+    transform: scale(0.75) !important;
+    -webkit-transform: scale(0.75) !important;
+}
+.banner-overlay {
+    padding: 50px 0px 30px;
+}
+}
