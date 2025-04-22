@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Proveedores</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../css2/empleados.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg">
+<div class="container">
+    <div class="logo">Kroma</div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+    <span class="fas fa-bars"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item"> <a class="nav-link" href="administrador.html">Inicio</a> </li>
+            <li class="nav-item"> <a class="nav-link" href="productos.html">Productos</a> </li>
+            <li class="nav-item"> <a class="nav-link" href="ventas.html">Ventas</a> </li>
+            <li class="nav-item"> <a class="nav-link" href="empleados.html">Empleados</a> </li>
+            <li class="nav-item"> <a class="nav-link" href="clientes.html">Clientes</a> </li>
+            <li class="nav-item"> <a class="nav-link active" href="proveedores.html">Proveedores</a> </li>
+            <li class="nav-item"> <a class="nav-link" href="insumos.html">Insumos</a> </li>
+            <li class="nav-item"> <a class="nav-link" href="index.html">Salir</a> </li>
+        </ul>
+    </div>
+</div>
+</nav>
+
+<div class="banner text-center" data-scroll-index='0'>
+<div class="banner-overlay">
+    <div class="container">
+    <h2>Proveedores</h2>
+    <div class="boton" style="text-align: right; margin-bottom: 20px;">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ProveedorModal">
+        Registrar nuevo Proveedor
+        </button>
+    </div>
+    <table class="table table-striped" id="proveedoresTable">
+        <thead>
+        <tr>
+            <th>Nombre de la Empresa</th>
+            <th>Contacto</th>
+            <th>Teléfono</th>
+            <th>Correo Electrónico</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Distribuciones Globales S.A.</td>
+            <td>Laura Ruiz</td>
+            <td>3101234567</td>
+            <td>laura@global.com</td>
+        </tr>
+        <tr>
+            <td>Proveedora Nacional</td>
+            <td>Andrés Pérez</td>
+            <td>3119876543</td>
+            <td>andres@proveedora.com</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <!-- Modal para nuevo proveedor -->
+    <div class="modal fade" id="ProveedorModal" tabindex="-1" aria-labelledby="ProveedorModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="ProveedorModalLabel">Registro de nuevo Proveedor</h5>
+            </div>
+            <div class="modal-body">
+            <form id="proveedorForm">
+                <div class="mb-3">
+                <label for="empresaProveedor" class="form-label">Nombre de la Empresa:</label>
+                <input type="text" class="form-control" id="empresaProveedor" placeholder="Empresa" required>
+                </div>
+                <div class="mb-3">
+                <label for="contactoProveedor" class="form-label">Nombre del Contacto:</label>
+                <input type="text" class="form-control" id="contactoProveedor" placeholder="Contacto" required>
+                </div>
+                <div class="mb-3">
+                <label for="telefonoProveedor" class="form-label">Teléfono:</label>
+                <input type="text" class="form-control" id="telefonoProveedor" placeholder="Teléfono" required>
+                </div>
+                <div class="mb-3">
+                <label for="correoProveedor" class="form-label">Correo Electrónico:</label>
+                <input type="email" class="form-control" id="correoProveedor" placeholder="Correo" required>
+                </div>
+            </form>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-primary" id="registerProveedorButton">Registrar Proveedor</button>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <!-- Script para registro de proveedor -->
+    <script>
+        document.getElementById('registerProveedorButton').addEventListener('click', function(event) {
+        event.preventDefault();
+
+        const empresa = document.getElementById('empresaProveedor').value;
+        const contacto = document.getElementById('contactoProveedor').value;
+        const telefono = document.getElementById('telefonoProveedor').value;
+        const correo = document.getElementById('correoProveedor').value;
+
+        if (empresa && contacto && telefono && correo) {
+            const table = document.getElementById('proveedoresTable').getElementsByTagName('tbody')[0];
+            const newRow = table.insertRow();
+
+            newRow.insertCell(0).textContent = empresa;
+            newRow.insertCell(1).textContent = contacto;
+            newRow.insertCell(2).textContent = telefono;
+            newRow.insertCell(3).textContent = correo;
+
+            alert('Proveedor registrado correctamente');
+
+            $('#ProveedorModal').modal('hide');
+            document.getElementById('proveedorForm').reset();
+        } else {
+            alert('Por favor, completa todos los campos.');
+        }
+        });
+    </script>
+    </div>
+</div>
+</div>
+
+<footer class="footer-copy">
+<div class="container-fluid">
+    <div class="row">
+    <div class="col-md-12">
+        <p>2025 &copy; Kroma</p>
+    </div>
+    </div>
+</div>
+</footer>
+</body>
+</html>
+
+<!-- Scripts -->
+<script src="../js/jquery-3.7.1.min.js"></script>
+<script src="../js/popper.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script>
+$(window).on("scroll", function () {
+    var bodyScroll = $(window).scrollTop(),
+        navbar = $(".navbar");
+
+    if (bodyScroll > 130) {
+        navbar.addClass("nav-scroll");
+        $('.navbar-logo img').attr('src', 'images/logo-black.png');
+    } else {
+        navbar.removeClass("nav-scroll");
+        $('.navbar-logo img').attr('src', 'images/logo-white.png');
+    }
+});
+</script>

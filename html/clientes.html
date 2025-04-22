@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Clientes</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../css2/empleados.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg">
+<div class="container">
+    <div class="logo">Kroma</div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+    <span class="fas fa-bars"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item"> <a class="nav-link" href="administrador.html">Inicio</a> </li>
+            <li class="nav-item"> <a class="nav-link" href="productos.html">Productos</a> </li>
+            <li class="nav-item"> <a class="nav-link" href="ventas.html">Ventas</a> </li>
+            <li class="nav-item"> <a class="nav-link" href="empleados.html">Empleados</a> </li>
+            <li class="nav-item"> <a class="nav-link active" href="clientes.html">Clientes</a> </li>
+            <li class="nav-item"> <a class="nav-link" href="proveedores.html">Proveedores</a> </li>
+            <li class="nav-item"> <a class="nav-link" href="insumos.html">Insumos</a> </li>
+            <li class="nav-item"> <a class="nav-link" href="index.html">Salir</a> </li>
+        </ul>
+    </div>
+</div>
+</nav>
+
+<div class="banner text-center" data-scroll-index='0'>
+<div class="banner-overlay">
+    <div class="container">
+    <h2>Clientes</h2>
+    <div class="boton" style="text-align: right; margin-bottom: 20px;">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ClienteModal">
+        Registrar nuevo Cliente
+        </button>
+    </div>
+    <table class="table table-striped" id="clientesTable">
+        <thead>
+        <tr>
+            <th>Nombre del Cliente</th>
+            <th>Teléfono</th>
+            <th>Dirección</th>
+            <th>Correo Electrónico</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Juan Torres</td>
+            <td>3214567890</td>
+            <td>Calle 123, Bogotá</td>
+            <td>juan@gmail.com</td>
+        </tr>
+        <tr>
+            <td>María Luna</td>
+            <td>3127896541</td>
+            <td>Av. 45, Medellín</td>
+            <td>maria@gmail.com</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <!-- Modal para nuevo cliente -->
+    <div class="modal fade" id="ClienteModal" tabindex="-1" aria-labelledby="ClienteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="ClienteModalLabel">Registro de nuevo Cliente</h5>
+            </div>
+            <div class="modal-body">
+            <form id="clienteForm">
+                <div class="mb-3">
+                <label for="nombreCliente" class="form-label">Nombre del Cliente:</label>
+                <input type="text" class="form-control" id="nombreCliente" placeholder="Nombre" required>
+                </div>
+                <div class="mb-3">
+                <label for="telefonoCliente" class="form-label">Teléfono:</label>
+                <input type="text" class="form-control" id="telefonoCliente" placeholder="Teléfono" required>
+                </div>
+                <div class="mb-3">
+                <label for="direccionCliente" class="form-label">Dirección:</label>
+                <input type="text" class="form-control" id="direccionCliente" placeholder="Dirección" required>
+                </div>
+                <div class="mb-3">
+                <label for="correoCliente" class="form-label">Correo Electrónico:</label>
+                <input type="email" class="form-control" id="correoCliente" placeholder="Correo" required>
+                </div>
+            </form>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-primary" id="registerClienteButton">Registrar Cliente</button>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <!-- Script para registrar cliente -->
+    <script>
+        document.getElementById('registerClienteButton').addEventListener('click', function(event) {
+        event.preventDefault();
+
+        const nombre = document.getElementById('nombreCliente').value;
+        const telefono = document.getElementById('telefonoCliente').value;
+        const direccion = document.getElementById('direccionCliente').value;
+        const correo = document.getElementById('correoCliente').value;
+
+        if (nombre && telefono && direccion && correo) {
+            const table = document.getElementById('clientesTable').getElementsByTagName('tbody')[0];
+            const newRow = table.insertRow();
+
+            newRow.insertCell(0).textContent = nombre;
+            newRow.insertCell(1).textContent = telefono;
+            newRow.insertCell(2).textContent = direccion;
+            newRow.insertCell(3).textContent = correo;
+
+            alert('Cliente registrado correctamente');
+
+            $('#ClienteModal').modal('hide');
+            document.getElementById('clienteForm').reset();
+        } else {
+            alert('Por favor, completa todos los campos.');
+        }
+        });
+    </script>
+    </div>
+</div>
+</div>
+
+<footer class="footer-copy">
+<div class="container-fluid">
+    <div class="row">
+    <div class="col-md-12">
+        <p>2025 &copy; Kroma</p>
+    </div>
+    </div>
+</div>
+</footer>
+</body>
+</html>
+
+<!-- Scripts -->
+<script src="../js/jquery-3.7.1.min.js"></script>
+<script src="../js/popper.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script>
+$(window).on("scroll", function () {
+    var bodyScroll = $(window).scrollTop(),
+        navbar = $(".navbar");
+
+    if (bodyScroll > 130) {
+        navbar.addClass("nav-scroll");
+        $('.navbar-logo img').attr('src', 'images/logo-black.png');
+    } else {
+        navbar.removeClass("nav-scroll");
+        $('.navbar-logo img').attr('src', 'images/logo-white.png');
+    }
+});
+</script>
