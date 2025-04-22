@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Insumos</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="../css2/insumos.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <div class="logo">Kroma</div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"> <span
+          class="fas fa-bars"></span> </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"> <a class="nav-link active" href="administrador.html">Inicio</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="productos.html">Productos</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="ventas.html">Ventas</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="empleados.html">Empleados</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="clientes.html">Clientes</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="proveedores.html">Proveedores</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="insumos.html">Insumos</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="index.html">Salir</a> </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="banner text-center" data-scroll-index='0'>
+    <div class="banner-overlay">
+      <div class="container">
+        <h2>Insumos</h2>
+        <div class="boton" style="text-align: right; margin-bottom: 20px;">
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#InsumoModal">
+            Registrar nuevo Insumo
+          </button>
+        </div>
+        <table class="table table-striped" id="insumosTable">
+          <thead>
+            <tr>
+              <th>Nombre del Insumo</th>
+              <th>Categoría</th>
+              <th>Cantidad</th>
+              <th>Unidad de Medida</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Ron Blanco</td>
+              <td>Bebidas Alcohólicas</td>
+              <td>20</td>
+              <td>Litros</td>
+            </tr>
+            <tr>
+              <td>Hielo</td>
+              <td>Consumibles</td>
+              <td>50</td>
+              <td>Kilos</td>
+            </tr>
+            <tr>
+              <td>Vasos Plásticos</td>
+              <td>Utensilios</td>
+              <td>500</td>
+              <td>Unidades</td>
+            </tr>
+            <tr>
+              <td>Refrescos</td>
+              <td>Bebidas No Alcohólicas</td>
+              <td>100</td>
+              <td>Botellas</td>
+            </tr>
+          </tbody>
+        </table>
+        <hr style="border-top: 4px solid #0d6efd; margin: 50px 0;">
+        <div class="banner text-center" data-scroll-index='0'>
+          <div class="banner-overlay">
+            <div class="container">
+              <h2>Categorías de Insumos</h2>
+              <div class="boton" style="text-align: right; margin-bottom: 20px;">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#CategoriaModal">
+                  Registrar nueva Categoría
+                </button>
+
+              </div>
+              <table class="table table-striped" id="categoriasTable">
+                <thead>
+                  <tr>
+                    <th>Nombre de la Categoría</th>
+                    <th>Descripción</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Bebidas Alcohólicas</td>
+                    <td>Incluye todo tipo de bebidas con alcohol</td>
+                  </tr>
+                  <tr>
+                    <td>Utensilios</td>
+                    <td>Material de apoyo como vasos, servilletas, etc.</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="modal fade" id="CategoriaModal" tabindex="-1" aria-labelledby="CategoriaModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="CategoriaModalLabel">Registro de nueva Categoría</h5>
+                    </div>
+                    <div class="modal-body">
+                      <form id="categoriaForm">
+                        <div class="mb-3">
+                          <label for="nombreCategoria" class="form-label">Nombre de la Categoría:</label>
+                          <input type="text" class="form-control" id="nombreCategoria" required>
+                        </div>
+                        <div class="mb-3">
+                          <label for="descripcionCategoria" class="form-label">Descripción:</label>
+                          <textarea class="form-control" id="descripcionCategoria" rows="3" required></textarea>
+                        </div>
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                      <button type="button" class="btn btn-success" id="registerCategoriaButton">Registrar
+                        Categoría</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <script>
+                document.getElementById('registerInsumoButton').addEventListener('click', function (event) {
+                  event.preventDefault();
+
+                  const nombre = document.getElementById('nombreInsumo').value;
+                  const categoria = document.getElementById('categoriaInsumo').value;
+                  const cantidad = document.getElementById('cantidadInsumo').value;
+                  const unidad = document.getElementById('unidadInsumo').value;
+
+                  if (nombre && categoria && cantidad && unidad) {
+                    const table = document.getElementById('insumosTable').getElementsByTagName('tbody')[0];
+                    const newRow = table.insertRow();
+
+                    newRow.insertCell(0).textContent = nombre;
+                    newRow.insertCell(1).textContent = categoria;
+                    newRow.insertCell(2).textContent = cantidad;
+                    newRow.insertCell(3).textContent = unidad;
+
+                    alert('Insumo registrado correctamente');
+
+                    var modal = bootstrap.Modal.getInstance(document.getElementById('InsumoModal'));
+                    modal.hide();
+
+                    document.getElementById('insumoForm').reset();
+                  } else {
+                    alert('Por favor, completa todos los campos.');
+                  }
+                });
+              </script>
+              <script>
+                document.getElementById('registerCategoriaButton').addEventListener('click', function (event) {
+                  event.preventDefault();
+
+                  const nombreCategoria = document.getElementById('nombreCategoria').value;
+                  const descripcionCategoria = document.getElementById('descripcionCategoria').value;
+
+                  if (nombreCategoria && descripcionCategoria) {
+                    const table = document.getElementById('categoriasTable').getElementsByTagName('tbody')[0];
+                    const newRow = table.insertRow();
+
+                    newRow.insertCell(0).textContent = nombreCategoria;
+                    newRow.insertCell(1).textContent = descripcionCategoria;
+
+                    alert('Categoría registrada correctamente');
+
+                    var modal = bootstrap.Modal.getInstance(document.getElementById('CategoriaModal'));
+                    modal.hide();
+
+                    document.getElementById('categoriaForm').reset();
+                  } else {
+                    alert('Por favor, completa todos los campos.');
+                  }
+                });
+              </script>
+            </div>
+          </div>
+        </div>
+        <div class="modal fade" id="InsumoModal" tabindex="-1" aria-labelledby="InsumoModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="InsumoModalLabel">Registro de nuevo Insumo</h5>
+              </div>
+              <div class="modal-body">
+                <form id="insumoForm">
+                  <div class="mb-3">
+                    <label for="nombreInsumo" class="form-label">Nombre del Insumo:</label>
+                    <input type="text" class="form-control" id="nombreInsumo" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="categoriaInsumo" class="form-label">Categoría:</label>
+                    <input type="text" class="form-control" id="categoriaInsumo" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="cantidadInsumo" class="form-label">Cantidad:</label>
+                    <input type="number" class="form-control" id="cantidadInsumo" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="unidadInsumo" class="form-label">Unidad de Medida:</label>
+                    <input type="text" class="form-control" id="unidadInsumo" required>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" id="registerInsumoButton">Registrar Insumo</button>
+              </div>
+            </div>
+          </div>
+          <hr>
+
+          <footer class="footer-copy">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-md-12">
+                  <p>2025 &copy; Kroma</p>
+                </div>
+              </div>
+            </div>
+          </footer>
+
+          <script src="../js/jquery-3.7.1.min.js"></script>
+          <script src="../js/popper.min.js"></script>
+          <script src="../js/bootstrap.min.js"></script>
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
